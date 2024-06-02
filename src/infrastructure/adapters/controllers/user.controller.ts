@@ -17,13 +17,13 @@ export class UserController {
   }
 
   @Post()
-  async create(@Body() user: User): Promise<User> {
-    return this.userService.createUser(user);
+  async create(@Body() createUserDto: { name: string, email: string }): Promise<User> {
+    return this.userService.createUser(createUserDto.name, createUserDto.email);
   }
 
   @Put(':id')
-  async update(@Param('id') id: number, @Body() user: User): Promise<User> {
-    return this.userService.updateUser(id, user);
+  async update(@Param('id') id: number, @Body() updateUserDto: { name: string, email: string }): Promise<User> {
+    return this.userService.updateUser(id, updateUserDto.name, updateUserDto.email);
   }
 
   @Delete(':id')

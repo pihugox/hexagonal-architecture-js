@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from '../../domain/entities/user.entity';
+import { UserEntity } from '../adapters/orm/user.entity';
 import { UserRepositoryImpl } from '../adapters/orm/user.repository';
 
 @Module({
@@ -8,10 +8,10 @@ import { UserRepositoryImpl } from '../adapters/orm/user.repository';
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'test.db',
-      entities: [User],
+      entities: [UserEntity],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([User])
+    TypeOrmModule.forFeature([UserEntity]),
   ],
   providers: [
     {
