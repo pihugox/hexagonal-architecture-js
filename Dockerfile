@@ -3,6 +3,7 @@ ENV NODE_ENV=production
 WORKDIR /app
 COPY ./ /app
 RUN npm install -g pnpm
+RUN npm install -g @nestjs/cli
 RUN pnpm install
 RUN pnpm run build
 
