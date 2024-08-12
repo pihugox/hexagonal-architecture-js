@@ -7,7 +7,7 @@ import { UserRepositoryImpl } from '../adapters/orm/user.repository';
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: 'test.db',
+      database: 'db/test.db',
       entities: [UserEntity],
       synchronize: true,
     }),
